@@ -358,10 +358,164 @@
         "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet2/DefaultRoute"
       }
     },
+    "gamedayvpcstagingSubnet1Subnet9FB85F89": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.4.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "staging"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/stagingSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet1/Subnet"
+      }
+    },
+    "gamedayvpcstagingSubnet1RouteTableB887D775": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/stagingSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet1/RouteTable"
+      }
+    },
+    "gamedayvpcstagingSubnet1RouteTableAssociationD6344998": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcstagingSubnet1RouteTableB887D775"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcstagingSubnet1Subnet9FB85F89"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet1/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcstagingSubnet1DefaultRoute0F5CBF1A": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcstagingSubnet1RouteTableB887D775"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "gamedayvpcIGWFA9B8D71"
+        }
+      },
+      "DependsOn": [
+        "gamedayvpcVPCGWE80698B6"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet1/DefaultRoute"
+      }
+    },
+    "gamedayvpcstagingSubnet2Subnet1A803555": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.5.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "staging"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/stagingSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet2/Subnet"
+      }
+    },
+    "gamedayvpcstagingSubnet2RouteTable8D470B35": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/stagingSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet2/RouteTable"
+      }
+    },
+    "gamedayvpcstagingSubnet2RouteTableAssociationB8D2B695": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcstagingSubnet2RouteTable8D470B35"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcstagingSubnet2Subnet1A803555"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet2/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcstagingSubnet2DefaultRoute3453AB86": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcstagingSubnet2RouteTable8D470B35"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "gamedayvpcIGWFA9B8D71"
+        }
+      },
+      "DependsOn": [
+        "gamedayvpcVPCGWE80698B6"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/stagingSubnet2/DefaultRoute"
+      }
+    },
     "gamedayvpcisolateSubnet1Subnet793C56C1": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.0.4.0/28",
+        "CidrBlock": "10.0.6.0/28",
         "VpcId": {
           "Ref": "gamedayvpc30F671B0"
         },
@@ -420,7 +574,7 @@
     "gamedayvpcisolateSubnet2SubnetAADA836B": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
-        "CidrBlock": "10.0.4.16/28",
+        "CidrBlock": "10.0.6.16/28",
         "VpcId": {
           "Ref": "gamedayvpc30F671B0"
         },
@@ -651,6 +805,14 @@
             ",",
             {
               "Ref": "gamedayvpcpublicSubnet2Subnet70B8DDF4"
+            },
+            ",",
+            {
+              "Ref": "gamedayvpcstagingSubnet1Subnet9FB85F89"
+            },
+            ",",
+            {
+              "Ref": "gamedayvpcstagingSubnet2Subnet1A803555"
             }
           ]
         ]
