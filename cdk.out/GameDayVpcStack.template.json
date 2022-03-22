@@ -1,0 +1,729 @@
+{
+  "Resources": {
+    "gamedayvpc30F671B0": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "game-day-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/Resource"
+      }
+    },
+    "gamedayvpcprivateSubnet1Subnet1BBFB82B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/privateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet1/Subnet"
+      }
+    },
+    "gamedayvpcprivateSubnet1RouteTable675E6F30": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/privateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet1/RouteTable"
+      }
+    },
+    "gamedayvpcprivateSubnet1RouteTableAssociation293BB50F": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcprivateSubnet1RouteTable675E6F30"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcprivateSubnet1Subnet1BBFB82B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet1/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcprivateSubnet1DefaultRouteD6ACCCCB": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcprivateSubnet1RouteTable675E6F30"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "gamedayvpcpublicSubnet1NATGateway497B1BBE"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet1/DefaultRoute"
+      }
+    },
+    "gamedayvpcprivateSubnet2Subnet50CA61F6": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.1.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/privateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet2/Subnet"
+      }
+    },
+    "gamedayvpcprivateSubnet2RouteTable61292A32": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/privateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet2/RouteTable"
+      }
+    },
+    "gamedayvpcprivateSubnet2RouteTableAssociationFDEB4361": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcprivateSubnet2RouteTable61292A32"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcprivateSubnet2Subnet50CA61F6"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet2/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcprivateSubnet2DefaultRoute153606B0": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcprivateSubnet2RouteTable61292A32"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "gamedayvpcpublicSubnet1NATGateway497B1BBE"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/privateSubnet2/DefaultRoute"
+      }
+    },
+    "gamedayvpcpublicSubnet1Subnet53F321F8": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.2.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/Subnet"
+      }
+    },
+    "gamedayvpcpublicSubnet1RouteTable2804F31C": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/RouteTable"
+      }
+    },
+    "gamedayvpcpublicSubnet1RouteTableAssociationB6698D63": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcpublicSubnet1RouteTable2804F31C"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcpublicSubnet1Subnet53F321F8"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcpublicSubnet1DefaultRoute955A0460": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcpublicSubnet1RouteTable2804F31C"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "gamedayvpcIGWFA9B8D71"
+        }
+      },
+      "DependsOn": [
+        "gamedayvpcVPCGWE80698B6"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/DefaultRoute"
+      }
+    },
+    "gamedayvpcpublicSubnet1EIPF6BCBC4B": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/EIP"
+      }
+    },
+    "gamedayvpcpublicSubnet1NATGateway497B1BBE": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "gamedayvpcpublicSubnet1Subnet53F321F8"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "gamedayvpcpublicSubnet1EIPF6BCBC4B",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet1/NATGateway"
+      }
+    },
+    "gamedayvpcpublicSubnet2Subnet70B8DDF4": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.3.0/24",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet2/Subnet"
+      }
+    },
+    "gamedayvpcpublicSubnet2RouteTable6EDBBA49": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/publicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet2/RouteTable"
+      }
+    },
+    "gamedayvpcpublicSubnet2RouteTableAssociation98799645": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcpublicSubnet2RouteTable6EDBBA49"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcpublicSubnet2Subnet70B8DDF4"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet2/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcpublicSubnet2DefaultRoute9FD40E9F": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcpublicSubnet2RouteTable6EDBBA49"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "gamedayvpcIGWFA9B8D71"
+        }
+      },
+      "DependsOn": [
+        "gamedayvpcVPCGWE80698B6"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/publicSubnet2/DefaultRoute"
+      }
+    },
+    "gamedayvpcisolateSubnet1Subnet793C56C1": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.4.0/28",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "isolate"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/isolateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet1/Subnet"
+      }
+    },
+    "gamedayvpcisolateSubnet1RouteTable5E924B0F": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/isolateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet1/RouteTable"
+      }
+    },
+    "gamedayvpcisolateSubnet1RouteTableAssociation774C83A0": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcisolateSubnet1RouteTable5E924B0F"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcisolateSubnet1Subnet793C56C1"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet1/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcisolateSubnet2SubnetAADA836B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.4.16/28",
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "isolate"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Isolated"
+          },
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/isolateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet2/Subnet"
+      }
+    },
+    "gamedayvpcisolateSubnet2RouteTable36A832D7": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "GameDayVpcStack/game-day-vpc/isolateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet2/RouteTable"
+      }
+    },
+    "gamedayvpcisolateSubnet2RouteTableAssociationA58A7CFD": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "gamedayvpcisolateSubnet2RouteTable36A832D7"
+        },
+        "SubnetId": {
+          "Ref": "gamedayvpcisolateSubnet2SubnetAADA836B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/isolateSubnet2/RouteTableAssociation"
+      }
+    },
+    "gamedayvpcIGWFA9B8D71": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "game-day-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/IGW"
+      }
+    },
+    "gamedayvpcVPCGWE80698B6": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "InternetGatewayId": {
+          "Ref": "gamedayvpcIGWFA9B8D71"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/VPCGW"
+      }
+    },
+    "gamedayvpcFlowLogIAMRoleAA3642C7": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "vpc-flow-logs.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "game-day-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/FlowLog/IAMRole/Resource"
+      }
+    },
+    "gamedayvpcFlowLogIAMRoleDefaultPolicyDF22BA91": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogStreams"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "gamedayvpcFlowLogLogGroup02B15ECA",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "iam:PassRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "gamedayvpcFlowLogIAMRoleAA3642C7",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "gamedayvpcFlowLogIAMRoleDefaultPolicyDF22BA91",
+        "Roles": [
+          {
+            "Ref": "gamedayvpcFlowLogIAMRoleAA3642C7"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/FlowLog/IAMRole/DefaultPolicy/Resource"
+      }
+    },
+    "gamedayvpcFlowLogLogGroup02B15ECA": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "RetentionInDays": 731,
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "game-day-vpc"
+          }
+        ]
+      },
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/FlowLog/LogGroup/Resource"
+      }
+    },
+    "gamedayvpcFlowLog2CCBF3C8": {
+      "Type": "AWS::EC2::FlowLog",
+      "Properties": {
+        "ResourceId": {
+          "Ref": "gamedayvpc30F671B0"
+        },
+        "ResourceType": "VPC",
+        "TrafficType": "ALL",
+        "DeliverLogsPermissionArn": {
+          "Fn::GetAtt": [
+            "gamedayvpcFlowLogIAMRoleAA3642C7",
+            "Arn"
+          ]
+        },
+        "LogDestinationType": "cloud-watch-logs",
+        "LogGroupName": {
+          "Ref": "gamedayvpcFlowLogLogGroup02B15ECA"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "game-day-vpc"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/game-day-vpc/FlowLog/FlowLog"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/02PQU/DMAyFf8vuqaEbElynCaZJaEQd2hWlWRjZ0rhqnFUoyn8naQvl5OfPL/bLEspHuF+I3hXydC2MriEcSMgrS+gjKLmEcGwl23zaI98w3umbIHXwtVWU4awq9KTeRW3UzGe2dg6lFqTR/pkZ97XRcl7xvOO57AVt05FefOduZ0l1yfAPpSRTt6aU9atRltiLwf4Vz3k+yci0aCBUOEYaKsd0cVgyqsgMnh2EZN926Ns8+dUxsko59J0c3r95av341YlGZvGk4OLubuUDlE+wWlyc1kXnLelGQTXWH0EIZ4hkAQAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "GameDayVpcStack/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "outputvpcid": {
+      "Description": "ID de la VPC",
+      "Value": {
+        "Ref": "gamedayvpc30F671B0"
+      },
+      "Export": {
+        "Name": "vpc-id"
+      }
+    },
+    "PublicSubnetIds": {
+      "Description": "publicSubnetIds",
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            {
+              "Ref": "gamedayvpcpublicSubnet1Subnet53F321F8"
+            },
+            ",",
+            {
+              "Ref": "gamedayvpcpublicSubnet2Subnet70B8DDF4"
+            }
+          ]
+        ]
+      },
+      "Export": {
+        "Name": "public-subnet-ids"
+      }
+    },
+    "ExportsOutputRefgamedayvpc30F671B060731178": {
+      "Value": {
+        "Ref": "gamedayvpc30F671B0"
+      },
+      "Export": {
+        "Name": "GameDayVpcStack:ExportsOutputRefgamedayvpc30F671B060731178"
+      }
+    },
+    "ExportsOutputRefgamedayvpcpublicSubnet1Subnet53F321F82000CD21": {
+      "Value": {
+        "Ref": "gamedayvpcpublicSubnet1Subnet53F321F8"
+      },
+      "Export": {
+        "Name": "GameDayVpcStack:ExportsOutputRefgamedayvpcpublicSubnet1Subnet53F321F82000CD21"
+      }
+    },
+    "ExportsOutputRefgamedayvpcisolateSubnet1Subnet793C56C16149FC24": {
+      "Value": {
+        "Ref": "gamedayvpcisolateSubnet1Subnet793C56C1"
+      },
+      "Export": {
+        "Name": "GameDayVpcStack:ExportsOutputRefgamedayvpcisolateSubnet1Subnet793C56C16149FC24"
+      }
+    },
+    "ExportsOutputRefgamedayvpcisolateSubnet2SubnetAADA836BFDB148B8": {
+      "Value": {
+        "Ref": "gamedayvpcisolateSubnet2SubnetAADA836B"
+      },
+      "Export": {
+        "Name": "GameDayVpcStack:ExportsOutputRefgamedayvpcisolateSubnet2SubnetAADA836BFDB148B8"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

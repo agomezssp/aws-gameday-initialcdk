@@ -1,0 +1,20 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "6e64531f8ce351e78f8e75524771621a74c9fdb2d00df34e90918450ef267f10": {
+      "source": {
+        "path": "GameDayVpcStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "369595298303-us-west-2": {
+          "bucketName": "cdk-hnb659fds-assets-369595298303-us-west-2",
+          "objectKey": "6e64531f8ce351e78f8e75524771621a74c9fdb2d00df34e90918450ef267f10.json",
+          "region": "us-west-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-file-publishing-role-369595298303-us-west-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
