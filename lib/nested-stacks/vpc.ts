@@ -24,11 +24,11 @@ export class Vpc extends NestedStack{
                     subnetType: aws_ec2.SubnetType.PUBLIC,
                     cidrMask: 24,
                 },
-                {
-                    name: 'staging',
-                    subnetType: aws_ec2.SubnetType.PUBLIC,
-                    cidrMask: 24,
-                },
+                // {
+                //     name: 'staging',
+                //     subnetType: aws_ec2.SubnetType.PUBLIC,
+                //     cidrMask: 24,
+                // },
                 {
                     name: 'isolate',
                     subnetType: aws_ec2.SubnetType.PRIVATE_ISOLATED,
@@ -36,17 +36,13 @@ export class Vpc extends NestedStack{
                 }
             ]
         })
-        
         this.vpc.addFlowLog('FlowLog')
-        
 
-        
         new CfnOutput(this, "output-vpc-id", {
             value: this.vpc.vpcId,
             description: "ID de la VPC",
             exportName: 'vpc-id'
         });
-
         this.vpc.publicSubnets.forEach((s,i) => new CfnOutput(this, `PublicSubnetId${i}`, {
             value: s.subnetId,
             description: `SubnetId of public subnet ${i}`,

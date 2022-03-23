@@ -28,7 +28,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/15f0d99d6071a3b8031a08099acec01cc4459ab87db96af372175f33350f8d58.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/7bcf09f4736e1b4b5cc7ac42a85ae4a555487f4b76dc378a515b46c68ef0f4a7.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -177,54 +177,6 @@
             "data": "gamedayvpcpublicSubnet2DefaultRoute9FD40E9F"
           }
         ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet1Subnet9FB85F89"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet1RouteTableB887D775"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet1RouteTableAssociationD6344998"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet1DefaultRoute0F5CBF1A"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet2Subnet1A803555"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet2RouteTable8D470B35"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet2RouteTableAssociationB8D2B695"
-          }
-        ],
-        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "gamedayvpcstagingSubnet2DefaultRoute3453AB86"
-          }
-        ],
         "/GDApp/Vpc/game-day-vpc/isolateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
@@ -315,18 +267,6 @@
             "data": "PublicSubnetId1"
           }
         ],
-        "/GDApp/Vpc/PublicSubnetId2": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "PublicSubnetId2"
-          }
-        ],
-        "/GDApp/Vpc/PublicSubnetId3": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "PublicSubnetId3"
-          }
-        ],
         "/GDApp/Vpc/PrivateSubnetId0": [
           {
             "type": "aws:cdk:logicalId",
@@ -387,18 +327,6 @@
             "data": "GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
           }
         ],
-        "/GDApp/Vpc/GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
-          }
-        ],
-        "/GDApp/Vpc/GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
-          }
-        ],
         "/GDApp/Vpc.NestedStack/Vpc.NestedStackResource": [
           {
             "type": "aws:cdk:logicalId",
@@ -457,12 +385,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "GDAppSecurityBastionSGD77F893FGroupId"
-          }
-        ],
-        "/GDApp/Security/GDAppSecurityMountTargetSGA63C43F9GroupId": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "GDAppSecurityMountTargetSGA63C43F9GroupId"
           }
         ],
         "/GDApp/Security/GDAppSecurityAlbSGF30DF66DGroupId": [
@@ -687,294 +609,6 @@
             "data": "RdsNestedStackRdsNestedStackResource9D137275"
           }
         ],
-        "/GDApp/Efs/VPC/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCB9E5F0B4"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1SubnetB4246D30"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1RouteTableFEE4B781"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1RouteTableAssociation0B0896DC"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1DefaultRoute91CEF279"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1EIP6AD938E8"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet1/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet1NATGatewayE0556630"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2Subnet74179F39"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2RouteTable6F1A15F1"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2RouteTableAssociation5A808732"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2DefaultRouteB7481BBA"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2EIP4947BC00"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet2/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet2NATGateway3C070193"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3Subnet631C5E25"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3RouteTable98AE0E14"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3RouteTableAssociation427FE0C6"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3DefaultRouteA0D29D46"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3EIPAD4BC883"
-          }
-        ],
-        "/GDApp/Efs/VPC/PublicSubnet3/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPublicSubnet3NATGatewayD3048F5C"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet1Subnet8BCA10E0"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet1RouteTableBE8A6027"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet1RouteTableAssociation347902D1"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet1DefaultRouteAE1D6490"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet2SubnetCFCDAA7A"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet2RouteTable0A19E10E"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet2RouteTableAssociation0C73D413"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet2DefaultRouteF4F5CFD2"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet3/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet3Subnet3EDCD457"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet3/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet3RouteTable192186F8"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet3/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet3RouteTableAssociationC28D144E"
-          }
-        ],
-        "/GDApp/Efs/VPC/PrivateSubnet3/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCPrivateSubnet3DefaultRoute27F311AE"
-          }
-        ],
-        "/GDApp/Efs/VPC/IGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCIGWB7E252D3"
-          }
-        ],
-        "/GDApp/Efs/VPC/VPCGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "VPCVPCGW99B986DC"
-          }
-        ],
-        "/GDApp/Efs/MyEfsFileSystem/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyEfsFileSystem570A3D32"
-          }
-        ],
-        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget1": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyEfsFileSystemEfsMountTarget113745499"
-          }
-        ],
-        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget2": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyEfsFileSystemEfsMountTarget2E02D6819"
-          }
-        ],
-        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget3": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyEfsFileSystemEfsMountTarget37A19F504"
-          }
-        ],
-        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget4": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "MyEfsFileSystemEfsMountTarget4A67C3AFC"
-          }
-        ],
-        "/GDApp/Efs/EFSAccessPoint/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "EFSAccessPointA847C4A5"
-          }
-        ],
-        "/GDApp/Efs/EFS-FileSystem-ID": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "EFSFileSystemID"
-          }
-        ],
-        "/GDApp/Efs/EFS-Access-Point": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "EFSAccessPoint"
-          }
-        ],
-        "/GDApp/Efs/CDKMetadata/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadata"
-          }
-        ],
-        "/GDApp/Efs/reference-to-GDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputs.GDAppSecurityMountTargetSGA63C43F9GroupId": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputsGDAppSecurityMountTargetSGA63C43F9GroupId"
-          }
-        ],
-        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref"
-          }
-        ],
-        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
-          }
-        ],
-        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
-          }
-        ],
-        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
-          }
-        ],
-        "/GDApp/Efs.NestedStack/Efs.NestedStackResource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "EfsNestedStackEfsNestedStackResource7E836D91"
-          }
-        ],
         "/GDApp/Alb/GameDayALB/Resource": [
           {
             "type": "aws:cdk:logicalId",
@@ -1021,18 +655,6 @@
           {
             "type": "aws:cdk:logicalId",
             "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
-          }
-        ],
-        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
-          }
-        ],
-        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
           }
         ],
         "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpc2DB800D3Ref": [
