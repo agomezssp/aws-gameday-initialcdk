@@ -39,7 +39,7 @@ export class GameDayStack extends Stack{
         });
 
 
-        //new Efs(this, "Efs", {sg: security.efsSG, vpc: vpc.vpc})
+        new Efs(this, "Efs", {sg: security.efsSG, vpc: vpc.vpc})
 
         new Alb(this, 'Alb', {
             vpc: vpc.vpc,

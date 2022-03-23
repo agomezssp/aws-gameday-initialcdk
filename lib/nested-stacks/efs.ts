@@ -20,7 +20,8 @@ export class Efs extends NestedStack {
         super(scope, id, props);
 
         const fileSystem = new FileSystem(this, 'MyEfsFileSystem', {
-            vpc: new Vpc(this, 'VPC'),
+            // vpc: new Vpc(this, 'VPC'),
+            vpc: props.vpc,
             lifecyclePolicy: LifecyclePolicy.AFTER_14_DAYS, // files are not transitioned to infrequent access (IA) storage by default
             performanceMode: PerformanceMode.GENERAL_PURPOSE, // default
             throughputMode: ThroughputMode.BURSTING,

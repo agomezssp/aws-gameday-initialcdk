@@ -12,6 +12,8 @@ const stackProps: StackProps = {
   },
 };
 
+console.log('process.env.CDK_DEFAULT_REGION', process.env.CDK_DEFAULT_REGION)
+
 const app = new cdk.App();
 
 
