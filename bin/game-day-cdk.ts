@@ -18,6 +18,6 @@ const app = new cdk.App();
 
 
 new GameDayStack(app, 'GDApp', stackProps);
-new GameDayModernizationStack(app, 'GDModernizationApp', stackProps);
+// new GameDayModernizationStack(app, 'GDModernizationApp', stackProps);
 
 

@@ -7,9 +7,10 @@ import {Kms} from "./nested-stacks/kms";
 import {Rds} from "./nested-stacks/rds";
 import {Efs} from "./nested-stacks/efs";
 import {Alb} from "./nested-stacks/alb";
+import {Fargate} from "./nested-stacks/fargate";
 
 
-export class GameDayStack extends Stack{
+export class GameDayStack extends Stack {
     constructor(scope: Construct, id: string, props: StackProps) {
         super(scope, id, props);
 
@@ -22,7 +23,7 @@ export class GameDayStack extends Stack{
         const security = new Security(
             this,
             "Security",
-            {vpc: vpc.vpc }
+            {vpc: vpc.vpc}
         );
 
         new Bastion(this, "Bastion", {
@@ -32,18 +33,27 @@ export class GameDayStack extends Stack{
 
         const kms = new Kms(this, "Kms");
 
-        new Rds(this, "Rds", {
+        const rds = new Rds(this, "Rds", {
             vpc: vpc.vpc,
             bastionSG: security.bastionSG,
+            appSG: security.appSG,
             rdsKey: kms.rdsKey,
         });
 
 
-        new Efs(this, "Efs", {sg: security.efsSG, vpc: vpc.vpc})
+        const efs = new Efs(this, "Efs", {sg: security.efsSG, vpc: vpc.vpc});
 
         new Alb(this, 'Alb', {
             vpc: vpc.vpc,
             sg: security.albSG
         })
+
+        new Fargate(this, 'FargateNS', {
+            vpc: vpc.vpc,
+            sg: security.appSG,
+            rdsSecret: rds.rdsSecret,
+            efs: efs.fs,
+            efsAccessPoint: efs.accessPoint
+        });
     }
 }

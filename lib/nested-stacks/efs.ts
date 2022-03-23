@@ -3,18 +3,20 @@ import {Construct} from "constructs";
 import {
     AccessPoint,
     FileSystem,
+    IAccessPoint,
     LifecyclePolicy,
     OutOfInfrequentAccessPolicy,
     PerformanceMode,
     ThroughputMode
 } from "aws-cdk-lib/aws-efs";
-import {ISecurityGroup, IVpc, Vpc} from "aws-cdk-lib/aws-ec2";
+import {ISecurityGroup, IVpc} from "aws-cdk-lib/aws-ec2";
 import {IFileSystem} from "aws-cdk-lib/aws-efs/lib/efs-file-system";
 import {oneSubnetByAz} from "../helpers/vpc-helper";
 
 
 export class Efs extends NestedStack {
     public readonly fs: IFileSystem;
+    public readonly accessPoint: IAccessPoint;
 
     constructor(scope: Construct, id: string, props: NestedStackProps & { vpc: IVpc, sg: ISecurityGroup }) {
         super(scope, id, props);
@@ -39,7 +41,7 @@ export class Efs extends NestedStack {
             // }
         });
 
-        const accesPoint = new AccessPoint(this, 'EFSAccessPoint', {
+        this.accessPoint = new AccessPoint(this, 'EFSAccessPoint', {
             fileSystem: fileSystem,
             posixUser: {gid: '1000', uid: '1000'},
             createAcl: {ownerGid: "1000", ownerUid: "1000", permissions: "0777"},
@@ -55,7 +57,7 @@ export class Efs extends NestedStack {
         })
 
         new CfnOutput(this, `EFS-Access-Point`, {
-            value: accesPoint.accessPointId,
+            value: this.accessPoint.accessPointId,
             description: `EFS Access Point ID`,
             exportName: `efs-access-point-id`,
         })

@@ -10,6 +10,7 @@ export class Security extends NestedStack {
     public readonly bastionSG: ISecurityGroup;
     public readonly efsSG: ISecurityGroup;
     public readonly albSG: ISecurityGroup;
+    public readonly appSG: ISecurityGroup;
 
     constructor(scope: Construct, id: string, props: SecurityStackProps) {
         super(scope, id, props);
@@ -18,6 +19,7 @@ export class Security extends NestedStack {
         this.bastionSG = this.sgBastion({vpc});
         this.efsSG = this.sgEFS({vpc});
         this.albSG = this.sgAlb({vpc});
+        this.appSG = this.sgApp({vpc});
     }
 
     sgBastion(props: { vpc: IVpc }): ISecurityGroup {
@@ -26,6 +28,15 @@ export class Security extends NestedStack {
             name: "BastionSG",
             port: Port.tcp(22),
             description: "BastionSG"
+        });
+    }
+
+    sgApp(props: { vpc: IVpc }): ISecurityGroup {
+        return this.sg({
+            vpc: props.vpc,
+            name: "AppSG",
+            port: Port.tcp(8080),
+            description: "AppSG"
         });
     }
 

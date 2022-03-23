@@ -8,8 +8,12 @@ export declare class Security extends NestedStack {
     readonly bastionSG: ISecurityGroup;
     readonly efsSG: ISecurityGroup;
     readonly albSG: ISecurityGroup;
+    readonly appSG: ISecurityGroup;
     constructor(scope: Construct, id: string, props: SecurityStackProps);
     sgBastion(props: {
+        vpc: IVpc;
+    }): ISecurityGroup;
+    sgApp(props: {
         vpc: IVpc;
     }): ISecurityGroup;
     sgEFS(props: {
