@@ -7,27 +7,32 @@
         "file": "tree.json"
       }
     },
-    "GameDayVpcStack.assets": {
+    "GDApp.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "GameDayVpcStack.assets.json",
+        "file": "GDApp.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "GameDayVpcStack": {
+    "GDApp": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://369595298303/us-west-2",
       "properties": {
-        "templateFile": "GameDayVpcStack.template.json",
+        "templateFile": "GDApp.template.json",
+        "tags": {
+          "Author": "3HTP",
+          "Environment": "dev",
+          "Project": "GameDay"
+        },
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/b276c750f53a1d8b58ab126bcaf7e5c7db17e803f0b057fef9e3590bb42491fe.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/15f0d99d6071a3b8031a08099acec01cc4459ab87db96af372175f33350f8d58.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "GameDayVpcStack.assets"
+          "GDApp.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-lookup-role-369595298303-us-west-2",
@@ -36,573 +41,1054 @@
         }
       },
       "dependencies": [
-        "GameDayVpcStack.assets"
+        "GDApp.assets"
       ],
       "metadata": {
-        "/GameDayVpcStack/game-day-vpc/Resource": [
+        "/GDApp": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "Author",
+                "Value": "3HTP"
+              },
+              {
+                "Key": "Environment",
+                "Value": "dev"
+              },
+              {
+                "Key": "Project",
+                "Value": "GameDay"
+              }
+            ]
+          }
+        ],
+        "/GDApp/Vpc/game-day-vpc/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpc30F671B0"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet1/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet1Subnet1BBFB82B"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet1/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet1RouteTable675E6F30"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet1/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet1RouteTableAssociation293BB50F"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet1/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet1DefaultRouteD6ACCCCB"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet2/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet2Subnet50CA61F6"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet2/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet2RouteTable61292A32"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet2/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet2RouteTableAssociationFDEB4361"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/privateSubnet2/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/privateSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcprivateSubnet2DefaultRoute153606B0"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1Subnet53F321F8"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1RouteTable2804F31C"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1RouteTableAssociationB6698D63"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1DefaultRoute955A0460"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/EIP": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/EIP": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1EIPF6BCBC4B"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet1/NATGateway": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet1/NATGateway": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet1NATGateway497B1BBE"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet2/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet2Subnet70B8DDF4"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet2/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet2RouteTable6EDBBA49"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet2/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet2RouteTableAssociation98799645"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/publicSubnet2/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/publicSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcpublicSubnet2DefaultRoute9FD40E9F"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet1/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet1Subnet9FB85F89"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet1/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet1RouteTableB887D775"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet1/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet1RouteTableAssociationD6344998"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet1/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet1/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet1DefaultRoute0F5CBF1A"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet2/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet2Subnet1A803555"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet2/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet2RouteTable8D470B35"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet2/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet2RouteTableAssociationB8D2B695"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/stagingSubnet2/DefaultRoute": [
+        "/GDApp/Vpc/game-day-vpc/stagingSubnet2/DefaultRoute": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcstagingSubnet2DefaultRoute3453AB86"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet1/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet1/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet1Subnet793C56C1"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet1/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet1/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet1RouteTable5E924B0F"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet1/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet1/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet1RouteTableAssociation774C83A0"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet2/Subnet": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet2/Subnet": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet2SubnetAADA836B"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet2/RouteTable": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet2/RouteTable": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet2RouteTable36A832D7"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/isolateSubnet2/RouteTableAssociation": [
+        "/GDApp/Vpc/game-day-vpc/isolateSubnet2/RouteTableAssociation": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcisolateSubnet2RouteTableAssociationA58A7CFD"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/IGW": [
+        "/GDApp/Vpc/game-day-vpc/IGW": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcIGWFA9B8D71"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/VPCGW": [
+        "/GDApp/Vpc/game-day-vpc/VPCGW": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcVPCGWE80698B6"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/FlowLog/IAMRole/Resource": [
+        "/GDApp/Vpc/game-day-vpc/FlowLog/IAMRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcFlowLogIAMRoleAA3642C7"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/FlowLog/IAMRole/DefaultPolicy/Resource": [
+        "/GDApp/Vpc/game-day-vpc/FlowLog/IAMRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcFlowLogIAMRoleDefaultPolicyDF22BA91"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/FlowLog/LogGroup/Resource": [
+        "/GDApp/Vpc/game-day-vpc/FlowLog/LogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcFlowLogLogGroup02B15ECA"
           }
         ],
-        "/GameDayVpcStack/game-day-vpc/FlowLog/FlowLog": [
+        "/GDApp/Vpc/game-day-vpc/FlowLog/FlowLog": [
           {
             "type": "aws:cdk:logicalId",
             "data": "gamedayvpcFlowLog2CCBF3C8"
           }
         ],
-        "/GameDayVpcStack/output-vpc-id": [
+        "/GDApp/Vpc/output-vpc-id": [
           {
             "type": "aws:cdk:logicalId",
             "data": "outputvpcid"
           }
         ],
-        "/GameDayVpcStack/PublicSubnetIds": [
+        "/GDApp/Vpc/PublicSubnetId0": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "PublicSubnetIds"
+            "data": "PublicSubnetId0"
           }
         ],
-        "/GameDayVpcStack/CDKMetadata/Default": [
+        "/GDApp/Vpc/PublicSubnetId1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CDKMetadata"
+            "data": "PublicSubnetId1"
           }
         ],
-        "/GameDayVpcStack/Exports/Output{\"Ref\":\"gamedayvpc30F671B0\"}": [
+        "/GDApp/Vpc/PublicSubnetId2": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefgamedayvpc30F671B060731178"
+            "data": "PublicSubnetId2"
           }
         ],
-        "/GameDayVpcStack/Exports/Output{\"Ref\":\"gamedayvpcpublicSubnet1Subnet53F321F8\"}": [
+        "/GDApp/Vpc/PublicSubnetId3": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefgamedayvpcpublicSubnet1Subnet53F321F82000CD21"
+            "data": "PublicSubnetId3"
           }
         ],
-        "/GameDayVpcStack/Exports/Output{\"Ref\":\"gamedayvpcisolateSubnet1Subnet793C56C1\"}": [
+        "/GDApp/Vpc/PrivateSubnetId0": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefgamedayvpcisolateSubnet1Subnet793C56C16149FC24"
+            "data": "PrivateSubnetId0"
           }
         ],
-        "/GameDayVpcStack/Exports/Output{\"Ref\":\"gamedayvpcisolateSubnet2SubnetAADA836B\"}": [
+        "/GDApp/Vpc/PrivateSubnetId1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputRefgamedayvpcisolateSubnet2SubnetAADA836BFDB148B8"
+            "data": "PrivateSubnetId1"
           }
         ],
-        "/GameDayVpcStack/BootstrapVersion": [
+        "/GDApp/Vpc/IsolateSubnetId0": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BootstrapVersion"
+            "data": "IsolateSubnetId0"
           }
         ],
-        "/GameDayVpcStack/CheckBootstrapVersion": [
+        "/GDApp/Vpc/IsolateSubnetId1": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CheckBootstrapVersion"
-          }
-        ]
-      },
-      "displayName": "GameDayVpcStack"
-    },
-    "GameDaySecurityStack.assets": {
-      "type": "cdk:asset-manifest",
-      "properties": {
-        "file": "GameDaySecurityStack.assets.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-      }
-    },
-    "GameDaySecurityStack": {
-      "type": "aws:cloudformation:stack",
-      "environment": "aws://369595298303/us-west-2",
-      "properties": {
-        "templateFile": "GameDaySecurityStack.template.json",
-        "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/a74d6c536f4b0fd9af5d11c02418cf434d20637a884476ca225213e8a57d571c.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
-        "additionalDependencies": [
-          "GameDaySecurityStack.assets"
-        ],
-        "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-lookup-role-369595298303-us-west-2",
-          "requiresBootstrapStackVersion": 8,
-          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-        }
-      },
-      "dependencies": [
-        "GameDayVpcStack",
-        "GameDaySecurityStack.assets"
-      ],
-      "metadata": {
-        "/GameDaySecurityStack/BastionSecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "BastionSecurityGroupDAB89EBD"
+            "data": "IsolateSubnetId1"
           }
         ],
-        "/GameDaySecurityStack/CDKMetadata/Default": [
+        "/GDApp/Vpc/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/GameDaySecurityStack/Exports/Output{\"Fn::GetAtt\":[\"BastionSecurityGroupDAB89EBD\",\"GroupId\"]}": [
+        "/GDApp/Vpc/GDAppVpcgamedayvpc2DB800D3Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputFnGetAttBastionSecurityGroupDAB89EBDGroupId0F2FE988"
+            "data": "GDAppVpcgamedayvpc2DB800D3Ref"
           }
         ],
-        "/GameDaySecurityStack/BootstrapVersion": [
+        "/GDApp/Vpc/GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BootstrapVersion"
+            "data": "GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref"
           }
         ],
-        "/GameDaySecurityStack/CheckBootstrapVersion": [
+        "/GDApp/Vpc/GDAppVpcgamedayvpcisolateSubnet1SubnetBE00DECDRef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CheckBootstrapVersion"
+            "data": "GDAppVpcgamedayvpcisolateSubnet1SubnetBE00DECDRef"
           }
-        ]
-      },
-      "displayName": "GameDaySecurityStack"
-    },
-    "GameDayBastionStack.assets": {
-      "type": "cdk:asset-manifest",
-      "properties": {
-        "file": "GameDayBastionStack.assets.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-      }
-    },
-    "GameDayBastionStack": {
-      "type": "aws:cloudformation:stack",
-      "environment": "aws://369595298303/us-west-2",
-      "properties": {
-        "templateFile": "GameDayBastionStack.template.json",
-        "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/6c1575d3d01473b5aeab6f076d68096a318d5a1c5f1e52bdd8233516a3e3add6.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
-        "additionalDependencies": [
-          "GameDayBastionStack.assets"
         ],
-        "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-lookup-role-369595298303-us-west-2",
-          "requiresBootstrapStackVersion": 8,
-          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-        }
-      },
-      "dependencies": [
-        "GameDaySecurityStack",
-        "GameDayVpcStack",
-        "GameDayBastionStack.assets"
-      ],
-      "metadata": {
-        "/GameDayBastionStack/GameDayBastionHost/Resource/InstanceRole/Resource": [
+        "/GDApp/Vpc/GDAppVpcgamedayvpcisolateSubnet2Subnet872A27DARef": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppVpcgamedayvpcisolateSubnet2Subnet872A27DARef"
+          }
+        ],
+        "/GDApp/Vpc/GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
+          }
+        ],
+        "/GDApp/Vpc/GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
+          }
+        ],
+        "/GDApp/Vpc/GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
+          }
+        ],
+        "/GDApp/Vpc.NestedStack/Vpc.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VpcNestedStackVpcNestedStackResourceC40EA5DD"
+          }
+        ],
+        "/GDApp/Security/BastionSG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BastionSGEBD2A3B1"
+          }
+        ],
+        "/GDApp/Security/SG-BastionSG-ID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SGBastionSGID"
+          }
+        ],
+        "/GDApp/Security/MountTargetSG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MountTargetSG60468CEC"
+          }
+        ],
+        "/GDApp/Security/SG-MountTargetSG-ID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SGMountTargetSGID"
+          }
+        ],
+        "/GDApp/Security/Alb-SG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AlbSGED0C4321"
+          }
+        ],
+        "/GDApp/Security/SG-Alb-SG-ID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SGAlbSGID"
+          }
+        ],
+        "/GDApp/Security/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GDApp/Security/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpc2DB800D3Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpc2DB800D3Ref"
+          }
+        ],
+        "/GDApp/Security/GDAppSecurityBastionSGD77F893FGroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppSecurityBastionSGD77F893FGroupId"
+          }
+        ],
+        "/GDApp/Security/GDAppSecurityMountTargetSGA63C43F9GroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppSecurityMountTargetSGA63C43F9GroupId"
+          }
+        ],
+        "/GDApp/Security/GDAppSecurityAlbSGF30DF66DGroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GDAppSecurityAlbSGF30DF66DGroupId"
+          }
+        ],
+        "/GDApp/Security.NestedStack/Security.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SecurityNestedStackSecurityNestedStackResourceA55AC602"
+          }
+        ],
+        "/GDApp/Bastion/GameDayBastionHost/Resource/InstanceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GameDayBastionHostInstanceRole0AD4F912"
           }
         ],
-        "/GameDayBastionStack/GameDayBastionHost/Resource/InstanceRole/DefaultPolicy/Resource": [
+        "/GDApp/Bastion/GameDayBastionHost/Resource/InstanceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GameDayBastionHostInstanceRoleDefaultPolicy283DDF41"
           }
         ],
-        "/GameDayBastionStack/GameDayBastionHost/Resource/InstanceProfile": [
+        "/GDApp/Bastion/GameDayBastionHost/Resource/InstanceProfile": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GameDayBastionHostInstanceProfile78E0777E"
           }
         ],
-        "/GameDayBastionStack/GameDayBastionHost/Resource/Resource": [
+        "/GDApp/Bastion/GameDayBastionHost/Resource/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GameDayBastionHost4427903E"
           }
         ],
-        "/GameDayBastionStack/GameDayBastionHost/BastionHostId": [
+        "/GDApp/Bastion/GameDayBastionHost/BastionHostId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GameDayBastionHostBastionHostId3A70D9BC"
           }
         ],
-        "/GameDayBastionStack/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+        "/GDApp/Bastion/SsmParameterValue:--aws--service--ami-amazon-linux-latest--amzn2-ami-hvm-x86_64-gp2:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SsmParameterValueawsserviceamiamazonlinuxlatestamzn2amihvmx8664gp2C96584B6F00A464EAD1953AFF4B05118Parameter"
           }
         ],
-        "/GameDayBastionStack/BastionhostId": [
+        "/GDApp/Bastion/BastionhostId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BastionhostId"
           }
         ],
-        "/GameDayBastionStack/CreateSshKeyCommand": [
+        "/GDApp/Bastion/CreateSshKeyCommand": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CreateSshKeyCommand"
           }
         ],
-        "/GameDayBastionStack/PushSshKeyCommand": [
+        "/GDApp/Bastion/PushSshKeyCommand": [
           {
             "type": "aws:cdk:logicalId",
             "data": "PushSshKeyCommand"
           }
         ],
-        "/GameDayBastionStack/SshCommand": [
+        "/GDApp/Bastion/SshCommand": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SshCommand"
           }
         ],
-        "/GameDayBastionStack/CDKMetadata/Default": [
+        "/GDApp/Bastion/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/GameDayBastionStack/BootstrapVersion": [
+        "/GDApp/Bastion/reference-to-GDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputs.GDAppSecurityBastionSGD77F893FGroupId": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BootstrapVersion"
+            "data": "referencetoGDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputsGDAppSecurityBastionSGD77F893FGroupId"
           }
         ],
-        "/GameDayBastionStack/CheckBootstrapVersion": [
+        "/GDApp/Bastion/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "CheckBootstrapVersion"
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref"
           }
-        ]
-      },
-      "displayName": "GameDayBastionStack"
-    },
-    "GameDayKmsStack.assets": {
-      "type": "cdk:asset-manifest",
-      "properties": {
-        "file": "GameDayKmsStack.assets.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-      }
-    },
-    "GameDayKmsStack": {
-      "type": "aws:cloudformation:stack",
-      "environment": "aws://369595298303/us-west-2",
-      "properties": {
-        "templateFile": "GameDayKmsStack.template.json",
-        "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/d509145703c87bb0222785e2fc179707553bfb91ad57efcbd29836d3e26a421e.json",
-        "requiresBootstrapStackVersion": 6,
-        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
-        "additionalDependencies": [
-          "GameDayKmsStack.assets"
         ],
-        "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-lookup-role-369595298303-us-west-2",
-          "requiresBootstrapStackVersion": 8,
-          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
-        }
-      },
-      "dependencies": [
-        "GameDayKmsStack.assets"
-      ],
-      "metadata": {
-        "/GameDayKmsStack/RdsKey/Resource": [
+        "/GDApp/Bastion.NestedStack/Bastion.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BastionNestedStackBastionNestedStackResource082E0C91"
+          }
+        ],
+        "/GDApp/Kms/RdsKey/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "RdsKey4E32BD4A"
           }
         ],
-        "/GameDayKmsStack/RdsKey/Alias/Resource": [
+        "/GDApp/Kms/RdsKey/Alias/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "RdsKeyAliasDCABF14B"
           }
         ],
-        "/GameDayKmsStack/CDKMetadata/Default": [
+        "/GDApp/Kms/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/GameDayKmsStack/Exports/Output{\"Fn::GetAtt\":[\"RdsKey4E32BD4A\",\"Arn\"]}": [
+        "/GDApp/Kms/GDAppKmsRdsKeyA71E9ADDArn": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "ExportsOutputFnGetAttRdsKey4E32BD4AArn75DC2DFE"
+            "data": "GDAppKmsRdsKeyA71E9ADDArn"
           }
         ],
-        "/GameDayKmsStack/BootstrapVersion": [
+        "/GDApp/Kms.NestedStack/Kms.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "KmsNestedStackKmsNestedStackResource522F04D1"
+          }
+        ],
+        "/GDApp/Rds/TemplatedSecret/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TemplatedSecret3D98B577"
+          }
+        ],
+        "/GDApp/Rds/TemplatedSecret/Attachment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TemplatedSecretAttachment26A5F9E1"
+          }
+        ],
+        "/GDApp/Rds/Database/Subnets/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseSubnets56F17B9A"
+          }
+        ],
+        "/GDApp/Rds/Database/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseSecurityGroup5C91FDCB"
+          }
+        ],
+        "/GDApp/Rds/Database/SecurityGroup/from GDAppSecurityBastionSG057BD557:{IndirectPort}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseSecurityGroupfromGDAppSecurityBastionSG057BD557IndirectPortECD507CD"
+          }
+        ],
+        "/GDApp/Rds/Database/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseB269D8BB"
+          }
+        ],
+        "/GDApp/Rds/Database/Instance1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseInstance1844F58FD"
+          }
+        ],
+        "/GDApp/Rds/Database/Instance2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DatabaseInstance2AA380DEE"
+          }
+        ],
+        "/GDApp/Rds/RDSEndpointAddress": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RDSEndpointAddress"
+          }
+        ],
+        "/GDApp/Rds/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GDApp/Rds/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcisolateSubnet1SubnetBE00DECDRef": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcisolateSubnet1SubnetBE00DECDRef"
+          }
+        ],
+        "/GDApp/Rds/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcisolateSubnet2Subnet872A27DARef": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcisolateSubnet2Subnet872A27DARef"
+          }
+        ],
+        "/GDApp/Rds/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpc2DB800D3Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpc2DB800D3Ref"
+          }
+        ],
+        "/GDApp/Rds/reference-to-GDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputs.GDAppSecurityBastionSGD77F893FGroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputsGDAppSecurityBastionSGD77F893FGroupId"
+          }
+        ],
+        "/GDApp/Rds/reference-to-GDAppKmsNestedStackKmsNestedStackResource026EF8A2Outputs.GDAppKmsRdsKeyA71E9ADDArn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppKmsNestedStackKmsNestedStackResource026EF8A2OutputsGDAppKmsRdsKeyA71E9ADDArn"
+          }
+        ],
+        "/GDApp/Rds.NestedStack/Rds.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RdsNestedStackRdsNestedStackResource9D137275"
+          }
+        ],
+        "/GDApp/Efs/VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCB9E5F0B4"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1SubnetB4246D30"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1RouteTableFEE4B781"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1RouteTableAssociation0B0896DC"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1DefaultRoute91CEF279"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1EIP6AD938E8"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet1NATGatewayE0556630"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2Subnet74179F39"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2RouteTable6F1A15F1"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2RouteTableAssociation5A808732"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2DefaultRouteB7481BBA"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2EIP4947BC00"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet2NATGateway3C070193"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3Subnet631C5E25"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3RouteTable98AE0E14"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3RouteTableAssociation427FE0C6"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3DefaultRouteA0D29D46"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3EIPAD4BC883"
+          }
+        ],
+        "/GDApp/Efs/VPC/PublicSubnet3/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPublicSubnet3NATGatewayD3048F5C"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet1Subnet8BCA10E0"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet1RouteTableBE8A6027"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet1RouteTableAssociation347902D1"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet1DefaultRouteAE1D6490"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet2SubnetCFCDAA7A"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet2RouteTable0A19E10E"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet2RouteTableAssociation0C73D413"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet2DefaultRouteF4F5CFD2"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet3/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet3Subnet3EDCD457"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet3/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet3RouteTable192186F8"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet3/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet3RouteTableAssociationC28D144E"
+          }
+        ],
+        "/GDApp/Efs/VPC/PrivateSubnet3/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCPrivateSubnet3DefaultRoute27F311AE"
+          }
+        ],
+        "/GDApp/Efs/VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCIGWB7E252D3"
+          }
+        ],
+        "/GDApp/Efs/VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCVPCGW99B986DC"
+          }
+        ],
+        "/GDApp/Efs/MyEfsFileSystem/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyEfsFileSystem570A3D32"
+          }
+        ],
+        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget1": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyEfsFileSystemEfsMountTarget113745499"
+          }
+        ],
+        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget2": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyEfsFileSystemEfsMountTarget2E02D6819"
+          }
+        ],
+        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget3": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyEfsFileSystemEfsMountTarget37A19F504"
+          }
+        ],
+        "/GDApp/Efs/MyEfsFileSystem/EfsMountTarget4": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyEfsFileSystemEfsMountTarget4A67C3AFC"
+          }
+        ],
+        "/GDApp/Efs/EFSAccessPoint/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EFSAccessPointA847C4A5"
+          }
+        ],
+        "/GDApp/Efs/EFS-FileSystem-ID": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EFSFileSystemID"
+          }
+        ],
+        "/GDApp/Efs/EFS-Access-Point": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EFSAccessPoint"
+          }
+        ],
+        "/GDApp/Efs/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GDApp/Efs/reference-to-GDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputs.GDAppSecurityMountTargetSGA63C43F9GroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputsGDAppSecurityMountTargetSGA63C43F9GroupId"
+          }
+        ],
+        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref"
+          }
+        ],
+        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
+          }
+        ],
+        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
+          }
+        ],
+        "/GDApp/Efs/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
+          }
+        ],
+        "/GDApp/Efs.NestedStack/Efs.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EfsNestedStackEfsNestedStackResource7E836D91"
+          }
+        ],
+        "/GDApp/Alb/GameDayALB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GameDayALB90A075A6"
+          }
+        ],
+        "/GDApp/Alb/GameDayALB/GameDay-ALB-Listener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GameDayALBGameDayALBListener69C19E95"
+          }
+        ],
+        "/GDApp/Alb/GameDayALB-TG/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GameDayALBTG0D6147E3"
+          }
+        ],
+        "/GDApp/Alb/ALB-Target-Group": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ALBTargetGroup"
+          }
+        ],
+        "/GDApp/Alb/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputs.GDAppSecurityAlbSGF30DF66DGroupId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppSecurityNestedStackSecurityNestedStackResourceEE10650FOutputsGDAppSecurityAlbSGF30DF66DGroupId"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet1SubnetB111FDC6Ref"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcpublicSubnet2Subnet57BB2867Ref"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet1Subnet111B96F9Ref"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpcstagingSubnet2Subnet035DB635Ref"
+          }
+        ],
+        "/GDApp/Alb/reference-to-GDAppVpcNestedStackVpcNestedStackResource87CD346EOutputs.GDAppVpcgamedayvpc2DB800D3Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "referencetoGDAppVpcNestedStackVpcNestedStackResource87CD346EOutputsGDAppVpcgamedayvpc2DB800D3Ref"
+          }
+        ],
+        "/GDApp/Alb.NestedStack/Alb.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AlbNestedStackAlbNestedStackResource08F0D0A4"
+          }
+        ],
+        "/GDApp/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/GDApp/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/GameDayKmsStack/CheckBootstrapVersion": [
+        "/GDApp/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "GameDayKmsStack"
+      "displayName": "GDApp"
     },
-    "GameDayRdsStack.assets": {
+    "GDModernizationApp.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "GameDayRdsStack.assets.json",
+        "file": "GDModernizationApp.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "GameDayRdsStack": {
+    "GDModernizationApp": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://369595298303/us-west-2",
       "properties": {
-        "templateFile": "GameDayRdsStack.template.json",
+        "templateFile": "GDModernizationApp.template.json",
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-deploy-role-369595298303-us-west-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-cfn-exec-role-369595298303-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/12560870eb3d55dd6315e0cfefc673fbd0e13d452f68260d1175d85c1649731d.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-369595298303-us-west-2/9e08ac62d41f67010bfcb599cdeea68f7c8f27ac6e1052b6617069bbf9e329e0.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "GameDayRdsStack.assets"
+          "GDModernizationApp.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::369595298303:role/cdk-hnb659fds-lookup-role-369595298303-us-west-2",
@@ -611,74 +1097,29 @@
         }
       },
       "dependencies": [
-        "GameDayVpcStack",
-        "GameDaySecurityStack",
-        "GameDayKmsStack",
-        "GameDayRdsStack.assets"
+        "GDModernizationApp.assets"
       ],
       "metadata": {
-        "/GameDayRdsStack/TemplatedSecret/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TemplatedSecret3D98B577"
-          }
-        ],
-        "/GameDayRdsStack/TemplatedSecret/Attachment/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "TemplatedSecretAttachment26A5F9E1"
-          }
-        ],
-        "/GameDayRdsStack/Database/Subnets/Default": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DatabaseSubnets56F17B9A"
-          }
-        ],
-        "/GameDayRdsStack/Database/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DatabaseSecurityGroup5C91FDCB"
-          }
-        ],
-        "/GameDayRdsStack/Database/SecurityGroup/from GameDaySecurityStackBastionSecurityGroupCA7C23F8:{IndirectPort}": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DatabaseSecurityGroupfromGameDaySecurityStackBastionSecurityGroupCA7C23F8IndirectPortC6EB43D9"
-          }
-        ],
-        "/GameDayRdsStack/Database/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DatabaseB269D8BB"
-          }
-        ],
-        "/GameDayRdsStack/Database/Instance1": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DatabaseInstance1844F58FD"
-          }
-        ],
-        "/GameDayRdsStack/CDKMetadata/Default": [
+        "/GDModernizationApp/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/GameDayRdsStack/BootstrapVersion": [
+        "/GDModernizationApp/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/GameDayRdsStack/CheckBootstrapVersion": [
+        "/GDModernizationApp/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "GameDayRdsStack"
+      "displayName": "GDModernizationApp"
     }
   }
 }

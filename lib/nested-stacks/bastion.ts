@@ -1,9 +1,9 @@
-import { Aws, aws_ec2, CfnOutput, Fn, Stack, StackProps } from "aws-cdk-lib";
-import { BastionHostLinux, Vpc } from "aws-cdk-lib/aws-ec2";
-import { Construct } from "constructs";
+import {Aws, aws_ec2, CfnOutput, NestedStack, NestedStackProps} from "aws-cdk-lib";
+import {BastionHostLinux} from "aws-cdk-lib/aws-ec2";
+import {Construct} from "constructs";
 
-export class GameDayBastionStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps & {vpc: aws_ec2.IVpc, bastionSecurityGroup: aws_ec2.ISecurityGroup}) {
+export class Bastion extends NestedStack {
+  constructor(scope: Construct, id: string, props: NestedStackProps & {vpc: aws_ec2.IVpc, bastionSg: aws_ec2.ISecurityGroup}) {
     super(scope, id, props);
 
     // const vpc = Vpc.fromVpcAttributes(this, "VPC", {
@@ -12,12 +12,12 @@ export class GameDayBastionStack extends Stack {
     //   //publicSubnetIds: Fn.importValue("public-subnet-ids").split(","),
     // });
 
-    const {vpc, bastionSecurityGroup} = props;
+    const {vpc, bastionSg} = props;
     
     const bastion = new BastionHostLinux(this, "GameDayBastionHost", {
       instanceName: "GameDayBastionHost",
       vpc,
-      securityGroup: bastionSecurityGroup,
+      securityGroup: bastionSg,
       subnetSelection: {
         subnetType: aws_ec2.SubnetType.PUBLIC,
       },

@@ -1,11 +1,11 @@
-import { aws_ec2, CfnOutput, Stack, StackProps } from "aws-cdk-lib";
-import { Construct } from "constructs";
+import {aws_ec2, CfnOutput, NestedStack, NestedStackProps} from "aws-cdk-lib";
+import {Construct} from "constructs";
 
 
-export class GameDayVpcStack extends Stack{
+export class Vpc extends NestedStack{
     vpc: aws_ec2.IVpc;
     
-    constructor(scope: Construct, id: string, props?: StackProps){
+    constructor(scope: Construct, id: string, props?: NestedStackProps){
         super(scope, id, props);
         
         
@@ -39,19 +39,31 @@ export class GameDayVpcStack extends Stack{
         
         this.vpc.addFlowLog('FlowLog')
         
-        const publicSubnetIds = this.vpc.publicSubnets.map(s => s.subnetId).join(",")
+
         
         new CfnOutput(this, "output-vpc-id", {
             value: this.vpc.vpcId,
             description: "ID de la VPC",
             exportName: 'vpc-id'
         });
-        new CfnOutput(this, "PublicSubnetIds", {
-            value: publicSubnetIds,
-            description: "publicSubnetIds",
-            exportName: 'public-subnet-ids',
-            
-        });
+
+        this.vpc.publicSubnets.forEach((s,i) => new CfnOutput(this, `PublicSubnetId${i}`, {
+            value: s.subnetId,
+            description: `SubnetId of public subnet ${i}`,
+            exportName: `public-subnet-id-${i}`,
+        }));
+
+        this.vpc.privateSubnets.forEach((s,i) => new CfnOutput(this, `PrivateSubnetId${i}`, {
+            value: s.subnetId,
+            description: `SubnetId of private subnet ${i}`,
+            exportName: `private-subnet-id-${i}`,
+        }));
+
+        this.vpc.isolatedSubnets.forEach((s,i) => new CfnOutput(this, `IsolateSubnetId${i}`, {
+            value: s.subnetId,
+            description: `SubnetId of isolate subnet ${i}`,
+            exportName: `isolate-subnet-id-${i}`,
+        }));
         
     }
 
